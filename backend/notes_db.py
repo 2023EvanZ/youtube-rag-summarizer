@@ -5,11 +5,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 CHROMA_API_KEY = os.getenv("CHROMA_API_KEY")
+CHROMA_TENANT = os.getenv("CHROMA_TENANT")
+CHROMA_YOUTUBE = os.getenv("CHROMA_YOUTUBE")
 
 chroma_client = chromadb.CloudClient(
-  api_key='ck-32knPaPgJ8A6qUyPYCpkVbKT5VqjXjcHPhKYJYZdcJMW',
-  tenant='9df971cf-5c47-4be6-bcf5-0a8722dc7b8f',
-  database='YouTube-RAG'
+  api_key=CHROMA_API_KEY,
+  tenant=CHROMA_TENANT,
+  database=CHROMA_YOUTUBE
 )
 
 notes_collection = chroma_client.get_or_create_collection(name="note_collection")
