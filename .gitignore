@@ -1,25 +1,68 @@
-# Python backend
-/backend/__pycache__/
-/backend/.env
-/backend/.venv
-/backend/*.pyc
-/backend/*.pyo
-/backend/*.pyd
-/backend/.mypy_cache/
-/backend/.pytest_cache/
-/backend/.DS_Store
-
-# Node frontend
-/frontend/node_modules/
-/frontend/build/
-/frontend/.env
-/frontend/.DS_Store
-
-# General
-*.log
-*.sqlite3
-*.db
+# Environment variables
 .env
+backend/.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/__pycache__/
+**/__pycache__/
+
+# Virtual environments
+backend/.venv/
+venv/
+env/
+ENV/
+.venv/
+
+# Database files - CRITICAL: Keep these out of git!
+backend/users.json
+backend/metrics.json
+backend/chroma_db/
+*.db
+*.sqlite
+*.sqlite3
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# IDEs
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+
+# OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Node modules (for frontend)
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
