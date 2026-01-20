@@ -47,14 +47,6 @@ def save_transcript_line(line: str, line_num: int):
     # print(transcript_collection.get()['documents'])
     # print("-" * 30)
 
-def get_context_from_chromadb(query_text, n_results=3):
-    results = notes_collection.query(
-        query_texts=[query_text],
-        n_results=n_results
-    )
-    context = "\n".join([doc for docs in results['documents'] for doc in docs])
-    return context
-
 def clear_notes_collection():
     all_docs = notes_collection.get()
     all_ids = all_docs.get("ids", [])
@@ -72,3 +64,13 @@ def clear_transcript_collection():
     remaining = transcript_collection.get()
     print("Remaining transcripts after clear:", remaining)
     print("-" * 30)
+
+def get_transcript_chunks(lines_per_chunk=10):
+    # Get all transcript lines from the collection
+    all_docs = transcript_collection.get()
+    lines = all_docs.get("documents", [])
+    chunks = [
+        ' '.join(lines[i:i+lines_per_chunk])
+        for i in range(0, len(lines), lines_per_chunk)
+    ]
+    return chunks

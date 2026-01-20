@@ -1,5 +1,5 @@
 from youtube_transcript_api import YouTubeTranscriptApi
-from notes_db import save_transcript_line, clear_transcript_collection, clear_notes_collection
+from .notes_db import save_transcript_line, clear_transcript_collection, clear_notes_collection
 
 # video_id = "UUhy9xSd6zg"
 # file_path = 'yt_transcript.txt'
